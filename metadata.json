@@ -1,0 +1,7 @@
+{
+  "name": "ArqueoPro - Gestión de Arqueos de Caja",
+  "description": "Aplicación profesional para el registro y control de arqueos de caja en múltiples tiendas, con soporte para diversos métodos de pago (Zelle, Pago Móvil, Efectivo) y validación de usuarios.",
+  "requestFramePermissions": [
+    "geolocation"
+  ]
+}
