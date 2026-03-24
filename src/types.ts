@@ -1,10 +1,26 @@
-export type UserRole = 'Gerente de Tienda' | 'Verificador de Pagos' | 'Administrador' | 'Contabilidad' | 'Supervisor';
+export type UserRole = 'Superadmin' | 'Gerente de Tienda' | 'Cajero/Operador' | 'Supervisor' | 'Verificador de Pagos' | 'Verificador Zelle y Pago Movil' | 'Contabilidad';
 
 export interface User {
+  id: string;
   email: string;
   role: UserRole;
-  displayName: string;
-  assignedStores: string[]; // List of store IDs
+  nombre: string;
+  sucursalId: string;
+  activo: boolean;
+  createdAt: string;
+}
+
+export interface Zelle {
+  id?: string;
+  date: string;
+  tiendaId: string;
+  titular: string;
+  receptor: string;
+  monto: number;
+  motivo: string;
+  verificado: boolean;
+  usuario: string;
+  timestamp: string;
 }
 
 export interface Gasto {
@@ -13,7 +29,7 @@ export interface Gasto {
   tiendaId: string;
   monto: number;
   descripcion: string;
-  tipo: 'Gasto' | 'Vale';
+  tipo: 'Gasto' | 'Vale' | 'Falla' | 'Vale por faltante' | 'Obsequio';
   autorizadoPor: string;
   usuario: string;
   timestamp: string;
@@ -38,6 +54,7 @@ export interface ArqueoData {
   tasaBcv: number;
   tiendaId: string;
   turno: 'PRIMER TURNO' | 'SEGUNDO TURNO';
+  ventaTotalBs?: number;
   ventaTotal: number;
   transacciones: number;
   fondoBs: number;
